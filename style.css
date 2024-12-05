@@ -1,0 +1,319 @@
+/*
+  --- 01 typography system 
+
+  
+- FONT SIZE SYSTEM (px)
+10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+
+
+  - Font weights 
+Default : 400
+Medium:500
+Semi-bold:600
+Bold:700
+  - Line heights 
+Default: 1
+small: 1.05
+medium: 1.2
+paragraph default: 1.6
+
+  -letter-spacing
+0.05px
+0.75px
+--- 02 COLORS
+
+- primary: #c1ff72
+
+- tints : 
+
+- shades : #aee667
+
+- accent : #61487f
+- greys :
+#888
+#767676 (lightest grey allowed on #fff )
+#6f6f6f (lightest grey allowed on #fdf2e9 )
+#555  (default text color)
+#333
+
+--- 05 SHADOWS 
+
+--- 06 BORDER-RADIUS
+20px
+
+Deafaulf : 9px
+medium : 11px
+
+--- 07 WHITESPACE  
+
+- Spacing system (px)
+2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+
+*/
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+body {
+  font-family: "Varela Round", sans-serif;
+  line-height: 1;
+  font-weight: 400;
+  color: #555;
+  overflow-x: hidden;
+}
+/* reusable css */
+.grid {
+  display: grid;
+  column-gap: 6.4rem;
+  row-gap: 9.6rem;
+}
+.less-row-gap {
+  row-gap: 6.4rem;
+}
+.grid--2--cols {
+  grid-template-columns: repeat(2, 1fr);
+}
+.grid--2--rows {
+  grid-template-rows: repeat(2, 1fr);
+}
+.grid--3--cols {
+  grid-template-columns: repeat(3, 1fr);
+}
+.grid--3--rows {
+  grid-template-rows: repeat(3, 1fr);
+}
+.grid--4--cols {
+  grid-template-columns: repeat(4, 1fr);
+}
+.grid--5--cols {
+  grid-template-columns: repeat(5, 1fr);
+}
+.grid--center--v {
+  align-items: center;
+}
+/* HELPER */
+.center-text {
+  text-align: center;
+}
+.margin-right-sm {
+  margin-right: 1.6rem !important;
+}
+.margin-bottom-md {
+  margin-bottom: 4.8rem !important;
+}
+strong {
+  font-weight: 500;
+}
+/*//////////////////////////////////////////////////////  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+.section-hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-image: url(img/hero.jpg);
+  background-repeat: no-repeat;
+  background-size: cover; /* or contain, or any size as per your need */
+  transform-origin: center; /* Ensure the flip happens from the center */
+}
+.section-hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+  transform: scaleX(-1); /* Flip horizontally */
+  background-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0.6)
+  ); /* Gradient fading from dark to transparent */
+}
+.logo-container {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+.logo {
+  width: 14rem;
+  height: 9rem;
+  margin-left: 0.8rem;
+  margin-top: 0.5rem;
+}
+.hero-text-box,
+header {
+  position: relative;
+  color: #fff;
+  z-index: 2;
+}
+.main-nav {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.main-nav-list {
+  display: flex;
+  list-style: none;
+  align-items: center;
+  gap: 4.8rem;
+  margin-right: 3.2rem;
+}
+.main-nav-link:link,
+.main-nav-link:visited {
+  color: #fff;
+  font-size: 2rem;
+  text-decoration: none;
+  transition: 0.3s;
+}
+.main-nav-link:hover,
+.main-nav-link:active {
+  color: #c1ff72;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  z-index: 10;
+  background-color: rgba(255, 255, 255, 0.1); /* Clean minimal look */
+  backdrop-filter: blur(0.1rem); /* Adds a modern frosted glass effect */
+  /* -webkit-backdrop-filter: blur(0.5rem); For Safari support */
+}
+.hero-text-box {
+  position: absolute;
+  top: 50%;
+  left: 5%;
+  transform: translate(1%, -54%);
+  max-width: 80rem; /* Control the width of text */
+  z-index: 2;
+  padding: 0 3.2rem;
+}
+.heading-accent {
+  color: #c1ff72;
+}
+
+/* Add styles for the heading and paragraph */
+.heading-primary {
+  font-size: 5.2rem;
+  margin-bottom: 3.2rem;
+  line-height: 1.1;
+}
+
+.hero-text-box p {
+  font-size: 2rem;
+  line-height: 1.6;
+  margin-bottom: 4.8rem;
+}
+
+.btn-cta:link,
+.btn-cta:visited {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 2rem;
+  font-weight: 500;
+  background-color: #c1ff72;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 0.8rem 1.2rem;
+  border-radius: 2rem;
+  transition: all 0.3s;
+  color: #333;
+}
+.btn-cta:hover,
+.btn-cta:active {
+  background-color: #715a8c;
+  color: #fff;
+  transform: translateY(-0.3rem);
+}
+/* gallery for hero section*/
+.hero-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  column-gap: 6.4rem;
+  row-gap: 6.4rem;
+  position: absolute;
+  top: 55%;
+  right: 20%;
+  transform: translateY(-50%);
+  z-index: 2;
+  font-size: 4.8rem;
+  height: 50rem;
+  width: 50rem;
+}
+
+.gallery-img {
+  height: 23.3rem;
+  width: 23.3rem;
+  border-radius: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s;
+  overflow: hidden;
+}
+.gallery-img:hover,
+.gallery-img:active {
+  transform: scale(1.1);
+}
+
+/*////////////// Search Bar for hero section //////////////////*/
+.search-bar {
+  display: flex; /* Align input and button in one row */
+  align-items: center; /* Vertically center the input and button */
+  border-radius: 2rem; /* Rounded corners for the whole search bar */
+  overflow: hidden; /* Prevents overflow */
+  margin-left: 3rem;
+}
+
+.search-bar input {
+  flex: 1;
+  padding: 0.8rem 3.2rem;
+  background-color: #fff;
+  border: none;
+  border-radius: 2rem 0 0 2rem;
+  font-size: 2em;
+  font-family: sans-serif;
+  font-weight: 400;
+  outline: none;
+  box-shadow: none;
+  margin: 0;
+  height: 4.8rem;
+  width: 50rem;
+}
+
+.search-bar input:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.search-bar button {
+  border: none;
+  padding: 0.8rem 3.2rem;
+  background-color: #c1ff72;
+  border-radius: 0 2rem 2rem 0;
+  cursor: pointer;
+  font-size: 2rem;
+  transition: background-color 0.3s ease;
+  height: 4.8rem;
+}
+
+.search-bar button:hover {
+  background-color: #61487f;
+}
+
+.search-icon {
+  height: 2.7rem;
+  width: 2.7rem;
+  color: #000;
+  border-radius: 50%;
+  padding: 0.5rem;
+}
+.search-bar button:hover .search-icon {
+  color: #fff;
+}
