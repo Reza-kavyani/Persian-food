@@ -50,6 +50,11 @@ medium : 11px
 2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
 
 */
+:root {
+  --gradient-color-1: #c1ff72; /* Lime green */
+  --gradient-color-2: #a160f0; /* Purple */
+  --bg-color: #fff; /* White background */
+}
 * {
   padding: 0;
   margin: 0;
@@ -66,6 +71,8 @@ body {
   font-weight: 400;
   color: #555;
   overflow-x: hidden;
+  overflow-y: hidden;
+  background-color: #d0c8d9;
 }
 /* reusable css */
 .grid {
@@ -96,6 +103,12 @@ body {
 }
 .grid--center--v {
   align-items: center;
+}
+.container {
+  width: 80vw;
+  display: grid;
+  gap: 2rem;
+  margin: auto;
 }
 /* HELPER */
 .center-text {
@@ -315,5 +328,114 @@ header {
   padding: 0.5rem;
 }
 .search-bar button:hover .search-icon {
+  color: #fff;
+}
+/*////////////// recipe card //////////////////*/
+/* .recipe-card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1000px;
+} */
+.recipe-section {
+  margin-top: 4.8rem;
+}
+.recipe-card {
+  width: 350px;
+  padding: 10px;
+  background: transparent;
+}
+
+.recipe-card-border {
+  position: relative;
+  background: linear-gradient(
+    90deg,
+    var(--gradient-color-1),
+    var(--gradient-color-2)
+  );
+  border-radius: 20px;
+  padding: 4px;
+  animation: border-rotate 3s linear infinite;
+  background-size: 200% 200%;
+}
+
+@keyframes border-rotate {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.recipe-card-content {
+  background: var(--bg-color);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.recipe-card-content:hover {
+  transform: scale(1.05);
+}
+
+.recipe-image-container {
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+}
+
+.recipe-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.recipe-details {
+  padding: 20px;
+  text-align: left;
+}
+
+.recipe-title {
+  font-size: 1.4rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.recipe-description {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.recipe-meta {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #61487f;
+}
+
+.recipe-view-btn {
+  width: 100%;
+  padding: 10px;
+  background-color: #c1ff72;
+  color: #333;
+  border: none;
+  border-radius: 20px;
+  font-size: 1.6rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.recipe-view-btn:hover {
+  background-color: #61487f;
   color: #fff;
 }
